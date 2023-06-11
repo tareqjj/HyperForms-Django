@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+</head>
+<body>
+  <form action="/register/" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+      <label for="{{ field.name }}">{{ field.label }}</label>
+      <input name="{{ field.name }}" id="{{ field.name }}" type="{{ field.type }}" required>
+      </p>
+    {% endfor %}
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+    <h2>Welcome to the reading club</h2>
+    <p>This is the best reading club you can even think of, please join.</p>
+    <form action="/register" method="get">
+        <button type="submit">Click here to join!</button>
+    </form>
+    <p>Current club participants:</p>
+    <table style="border-style: double">
+        <tr>
+            {% for heading in context.table_headings %}
+                <th style="border-style: double">{{ heading.name }}</th>
+            {% endfor %}
+        </tr>
+        {% for record in context.record_data_list %}
+            <tr>
+                {% for data in record %}
+                <td style="border-style: double">{{ data.data }}</td>
+                {% endfor %}
+            </tr>
+        {% empty %}
+        <div>No participants so far. Be the first!</div>
+        {% endfor %}
+    </table>
+</body>
+</html>
